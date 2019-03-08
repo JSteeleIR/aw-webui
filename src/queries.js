@@ -44,9 +44,18 @@ export function appQuery(appbucket, limit) {
 export function browserSummaryQuery(browserbucket, windowbucket, afkbucket, count, filterAFK) {
   var browser_appnames = "";
   if (browserbucket.endsWith("-chrome")){
-    browser_appnames = JSON.stringify(["Google-chrome", "chrome.exe", "Chromium", "Google Chrome", "Chromium-browser", "Chromium-browser-chromium", "Google-chrome-beta", "Google-chrome-unstable"]);
+    browser_appnames = JSON.stringify([
+        "Google-chrome", "chrome.exe", "Google Chrome",
+        "Chromium", "Chromium-browser", "Chromium-browser-chromium",
+        "Google-chrome-beta", "Google-chrome-unstable",
+        // FIXME: Are these correct? Does the bucketname of opera and brave end with "-chrome"?
+        "opera.exe", "brave.exe",
+    ]);
   } else if (browserbucket.endsWith("-firefox")){
-    browser_appnames = JSON.stringify(["Firefox", "Firefox.exe", "firefox", "firefox.exe", "Firefox Developer Edition", "Firefox Beta", "Nightly"]);
+    browser_appnames = JSON.stringify([
+        "Firefox", "Firefox.exe", "firefox", "firefox.exe",
+        "Firefox Developer Edition", "Firefox Beta", "Nightly",
+    ]);
   }
 
   return [
