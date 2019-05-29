@@ -8,6 +8,9 @@ export default {
     },
     "currently-playing": {
         key: "title"
+    },
+    "awclistatus": {
+        key: "label"
     }
 }
 
